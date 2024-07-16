@@ -1,12 +1,13 @@
 <?php
+session_start();
 
 //Montagem do texto
-$titulo = $_POST['titulo'];
-$categoria = $_POST['categoria'];
-$descricao = $_POST['descricao'];
+$titulo = str_replace('#', '-', $_POST['titulo']);
+$categoria = str_replace('#', '-', $_POST['categoria']);
+$descricao = str_replace('#', '-', $_POST['descricao']);
 
 //Inserindo as variáveis no escopo do texto
-$texto = "$titulo#$categoria#$descricao" . PHP_EOL ;
+$texto = $_SESSION['id']. '#' . $titulo. '#' . $categoria . '#' . $descricao . PHP_EOL;
 
 //Montando o arquivo txt
 $arquivo = fopen('arquivo.hd', 'a');

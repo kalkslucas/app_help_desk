@@ -52,16 +52,24 @@ fclose($arquivo);
             <? foreach($chamados as $chamado) { ?>
 
               <?php
+                //divide todos os itens da linha usando o # como uma quebra
                 $chamados_dados = explode('#', $chamado);
+                //verifica se o id do perfil do usuário da sessão é igual a 2 (PERFIL USUARIO)
+                if($_SESSION['perfil_id'] == 2){
+                  //controle de exibição do chamado somente pelo usuário
+                  if($_SESSION['id'] != $chamados_dados[0]){
+                    continue;
+                  }
+                }
               ?>
 
 
               <div class="card mb-3 bg-light">
 
                 <div class="card-body">
-                  <h5 class="card-title"><?=$chamados_dados[0]?></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"><?=$chamados_dados[1]?></h6>
-                  <p class="card-text"><?=$chamados_dados[2]?></p>
+                  <h5 class="card-title"><?=$chamados_dados[1]?></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><?=$chamados_dados[2]?></h6>
+                  <p class="card-text"><?=$chamados_dados[3]?></p>
                 </div>
 
               </div>
