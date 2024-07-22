@@ -10,7 +10,7 @@ $descricao = str_replace('#', '-', $_POST['descricao']);
 $texto = $_SESSION['id']. '#' . $titulo. '#' . $categoria . '#' . $descricao . PHP_EOL;
 
 //Montando o arquivo txt
-$arquivo = fopen('arquivo.hd', 'a');
+$arquivo = fopen('../../app_help_desk/arquivo.hd', 'a');
 fwrite($arquivo, $texto);
 fclose($arquivo);
 //echo $texto;

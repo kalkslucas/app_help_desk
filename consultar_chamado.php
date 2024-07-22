@@ -1,6 +1,6 @@
 <?php 
 require_once 'validador_acesso.php';
-$arquivo = fopen('arquivo.hd', 'r');
+$arquivo = fopen('../../app_help_desk/arquivo.hd', 'r');
 
 //Laço de repetição para recuperar as linhas de registros do arquivo
 while(!feof($arquivo)){//feof -> testando o fim do arquivo
